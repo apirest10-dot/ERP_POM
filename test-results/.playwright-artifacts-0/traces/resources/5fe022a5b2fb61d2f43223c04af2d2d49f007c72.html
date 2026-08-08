@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+	Dashboard &laquo; Stock Accounting	</title>
+	<meta charset="utf-8">
+<!-- <link rel="stylesheet" type="text/css" href="bootstrap3/css/bootstrap.css"> -->
+<link rel="stylesheet" type="text/css" href="bootstrap3/css/bootstrap-tahoma-14px.css">
+<!-- Optional theme -->
+<link rel="stylesheet" type="text/css" href="bootstrap3/css/bootstrap-theme.css">
+<link rel="stylesheet" type="text/css" href="phpcss/jquery.fileupload.css">
+<link rel="stylesheet" type="text/css" href="phpcss/jquery.fileupload-ui.css">
+<link rel="stylesheet" type="text/css" href="colorbox/colorbox.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="phpcss/theme-red.css">
+<script type="text/javascript" src="jquery/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="jquery/jquery.storageapi.min.js"></script>
+<script type="text/javascript" src="jquery/pStrength.jquery.js"></script>
+<script type="text/javascript" src="jquery/pGenerator.jquery.js"></script>
+<script type="text/javascript" src="phpjs/scrolltotop.js"></script>
+<script type="text/javascript" src="phpjs/helpdialog.js"></script>
+<link rel="stylesheet" type="text/css" href="alertifyjs/css/alertify.min.css">
+<link rel="stylesheet" type="text/css" href="alertifyjs/css/themes/bootstrap.min.css">
+<script type="text/javascript" src="alertifyjs/alertify.min.js"></script>
+<link rel="stylesheet" type="text/css" href="bootstrap3/css/bootstrap-modal.css">
+<script type="text/javascript" src="bootstrap3/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="phpjs/typeahead.bundle.min.js"></script>
+<script type="text/javascript" src="jqueryfileupload/jquery.ui.widget.js"></script>
+<script type="text/javascript" src="jqueryfileupload/load-image.all.min.js"></script>
+<script type="text/javascript" src="jqueryfileupload/jqueryfileupload.min.js"></script>
+<script type="text/javascript" src="colorbox/jquery.colorbox-min.js"></script>
+<script type="text/javascript" src="phpjs/mobile-detect.min.js"></script>
+<script type="text/javascript" src="phpjs/moment.min.js"></script>
+<style>
+</style>
+<script type="text/javascript" src="phpjs/autonumeric.js"></script>
+<script type="text/javascript" src="ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="phpjs/eweditor.js"></script>
+<link href="calendar/calendar.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="calendar/calendar.min.js"></script>
+<script type="text/javascript" src="calendar/calendar-setup.js"></script>
+<script type="text/javascript" src="phpjs/ewcalendar.js"></script>
+<script type="text/javascript">
+var EW_LANGUAGE_ID = "en";
+var EW_DATE_SEPARATOR = "/"; // Default date separator
+var EW_DEFAULT_DATE_FORMAT = "yyyy/mm/dd"; // Default date format
+var EW_DECIMAL_POINT = ".";
+var EW_THOUSANDS_SEP = ",";
+var EW_MIN_PASSWORD_STRENGTH = 60;
+var EW_GENERATE_PASSWORD_LENGTH = 16;
+var EW_GENERATE_PASSWORD_UPPERCASE = true;
+var EW_GENERATE_PASSWORD_LOWERCASE = true;
+var EW_GENERATE_PASSWORD_NUMBER = true;
+var EW_GENERATE_PASSWORD_SPECIALCHARS = false;
+var EW_SESSION_TIMEOUT = 180; // Session timeout time (seconds)
+var EW_SESSION_TIMEOUT_COUNTDOWN = 60; // Count down time to session timeout (seconds)
+var EW_SESSION_KEEP_ALIVE_INTERVAL = 180; // Keep alive interval (seconds)
+var EW_RELATIVE_PATH = ""; // Relative path
+var EW_SESSION_URL = EW_RELATIVE_PATH + "ewsession12.php"; // Session URL
+var EW_IS_LOGGEDIN = true; // Is logged in
+var EW_IS_AUTOLOGIN = false; // Is logged in with option "Auto login until I logout explicitly"
+var EW_LOGOUT_URL = EW_RELATIVE_PATH + "logout.php"; // Logout URL
+var EW_LOOKUP_FILE_NAME = "ewlookup12.php"; // Lookup file name
+var EW_AUTO_SUGGEST_MAX_ENTRIES = 10; // Auto-Suggest max entries
+var EW_MAX_EMAIL_RECIPIENT = 3;
+var EW_DISABLE_BUTTON_ON_SUBMIT = true;
+var EW_IMAGE_FOLDER = "phpimages/"; // Image folder
+var EW_UPLOAD_URL = "ewupload12.php"; // Upload URL
+var EW_UPLOAD_THUMBNAIL_WIDTH = 200; // Upload thumbnail width
+var EW_UPLOAD_THUMBNAIL_HEIGHT = 0; // Upload thumbnail height
+var EW_MULTIPLE_UPLOAD_SEPARATOR = ","; // Upload multiple separator
+var EW_USE_COLORBOX = true;
+var EW_USE_JAVASCRIPT_MESSAGE = 1; // old method: --> get from PHPMaker project setting --> true;
+var EW_MOBILE_DETECT = new MobileDetect(window.navigator.userAgent);
+var EW_IS_MOBILE = EW_MOBILE_DETECT.mobile() ? true : false;
+var EW_PROJECT_STYLESHEET_FILENAME = "phpcss/theme-red.css"; // Project style sheet
+var EW_PDF_STYLESHEET_FILENAME = "phpcss/ewpdf.css"; // Pdf style sheet
+var EW_TOKEN = "XyPOg-nlxIui0k3yyUIuiA..";
+
+// var EW_CSS_FLIP = false;
+var EW_CSS_FLIP = false;
+var EW_CONFIRM_CANCEL = true;
+</script>
+<script type="text/javascript" src="phpjs/jsrender.min.js"></script>
+<script type="text/javascript" src="phpjs/ewp12.js"></script>
+<script type="text/javascript">
+var ewVar = [];
+var ewLanguage = new ew_Language({"clickrecaptcha":"Please click reCAPTCHA","confirmcancel":"Do you want to cancel?","lightboxtitle":" ","lightboxcurrent":"image {current} of {total}","lightboxprevious":"previous","lightboxnext":"next","lightboxclose":"close","lightboxxhrerror":"This content failed to load.","lightboximgerror":"This image failed to load.","countselected":"%s selected","currentpassword":"Current password: ","deleteconfirmmsg":"Do you want to delete the selected record(s)?","deletefilterconfirm":"Delete filter %s?","enterfiltername":"Enter filter name","enternewpassword":"Please enter new password","enteroldpassword":"Please enter old password","enterpassword":"Please enter password","enterpwd":"Please enter password","enterusername":"Please enter username","entervalidatecode":"Enter the validation code shown","entersenderemail":"Please enter sender email","enterpropersenderemail":"Exceed maximum sender email count or email address incorrect","enterrecipientemail":"Please enter recipient email","enterproperrecipientemail":"Exceed maximum recipient email count or email address incorrect","enterproperccemail":"Exceed maximum cc email count or email address incorrect","enterproperbccemail":"Exceed maximum bcc email count or email address incorrect","entersubject":"Please enter subject","enteruid":"Please enter user ID","entervalidemail":"Please enter valid Email Address","exporttoemailtext":"Email","filtername":"Filter name","incorrectemail":"Incorrect email","incorrectfield":"Incorrect field","incorrectfloat":"Incorrect floating point number","incorrectguid":"Incorrect GUID","incorrectinteger":"Incorrect integer","incorrectphone":"Incorrect phone number","incorrectregexp":"Regular expression not matched","incorrectrange":"Number must be between %1 and %2","incorrectssn":"Incorrect social security number","incorrecttime":"Incorrect time (hh:mm:ss)","incorrectzip":"Incorrect ZIP code","insertfailed":"Insert failed","invalidrecord":"Invalid Record! Key is null","loading":"Loading...","maxfilesize":"Max. file size (%s bytes) exceeded.","messageok":"OK","mismatchpassword":"Mismatch Password","next":"Next","noaddrecord":"No records to be added","nofieldselected":"No field selected for update","norecordselected":"No records selected","passwordstrength":"Strength: %p","passwordtoosimple":"Your password is too simple","pleaseselect":"Please select","pleasewait":"Please wait...","prev":"Prev","quicksearchauto":"Auto","quicksearchautoshort":"","quicksearchall":"All keywords","quicksearchallshort":"All","quicksearchany":"Any keywords","quicksearchanyshort":"Any","quicksearchexact":"Exact match","quicksearchexactshort":"Exact","sendemailsuccess":"Email sent successfully","sessionwillexpire":"Your session will expire in %s seconds. Click OK to continue your session.","sessionexpired":"Your session has expired. Please login again!","uploading":"Uploading...","uploadstart":"Start","uploadcancel":"Cancel","uploaddelete":"Delete","uploadoverwrite":"Overwrite old file?","uploaderrmsgmaxfilesize":"File is too big","uploaderrmsgminfilesize":"File is too small","uploaderrmsgacceptfiletypes":"File type not allowed","uploaderrmsgmaxnumberoffiles":"Maximum number of files exceeded","uploaderrmsgmaxfilelength":"Total length of file names exceeds field length","useradministrator":"Administrator","useranonymous":"Anonymous","userdefault":"Default","userleveladministratorname":"User level name for user level -1 must be 'Administrator'","userlevelanonymousname":"User level name for user level -2 must be 'Anonymous'","userlevelidinteger":"User Level ID must be integer","userleveldefaultname":"User level name for user level 0 must be 'Default'","userlevelidincorrect":"User defined User Level ID must be larger than 0","userlevelnameincorrect":"User defined User Level name cannot be 'Administrator' or 'Default'","valuenotexist":"Value does not exist","wrongfiletype":"File type is not allowed.","alertifysessionextended":"Session has been successfully extended","alertifyalert":"Alert","alertifyconfirm":"Confirm","alertifyprompt":"Prompt","alertifyadd":"Adding ...","alertifyedit":"Updating ...","alertifysavegrid":"Saving the grid ...","alertifydelete":"Deleting ...","alertifycancel":"Cancelling ...","alertifyprocessing":"Processing ...","myokmessage":"OK","mycancelmessage":"Cancel","sessioncountdown":"Your session will expire in %s seconds."});</script>
+<script type="text/javascript">
+
+function createCookie(name, value, days) { if (days) { var date = new Date(); date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000)); var expires = "; expires=" + date.toGMTString(); } else var expires = ""; document.cookie = name + "=" + value + expires + "; path=/"; }
+
+function getCookie(c_name) { if (document.cookie.length > 0) { c_start = document.cookie.indexOf(c_name + "="); if (c_start != -1) { c_start = c_start + c_name.length + 1; c_end = document.cookie.indexOf(";", c_start); if (c_end == -1) { c_end = document.cookie.length; } return unescape(document.cookie.substring(c_start, c_end)); } } return ""; }
+</script>
+<script type="text/javascript">
+paceOptions = {
+  ajax: false, // disabled
+  document: false, // disabled
+  eventLag: false, // disabled
+  restartOnPushState: false,
+  elements: {
+    selectors: ['#ewTooltip']
+  }
+};
+</script>
+<script type="text/javascript" src="loading/pace.min.js"></script>
+<link rel="stylesheet" type="text/css" href="loading/themes/pace-theme-corner-indicator.css">
+<script type="text/javascript">
+
+// jQuery for auto hide message after 3 seconds, by Masino Sinaga, October 18, 2011
+$(document).ready(function() {
+	$("p#ewSuccessMessage").show().delay(3000).queue(function(n) {$(this).hide('slow'); n();}); 
+});
+</script>
+<script type="text/javascript">
+alertify.defaults.pinnable = true;
+alertify.defaults.modal = false;
+alertify.defaults.transition = "zoom";
+alertify.defaults.theme.ok = "btn btn-primary";
+alertify.defaults.theme.cancel = "btn btn-danger";
+alertify.defaults.theme.input = "form-control";
+
+function AskToLogout() {
+	alertify.confirm("Are you sure you want to logout?",function(e){if(e){alertify.success("Processing ..."); document.location.href = 'logout.php';}}).set('labels', {ok:'OK!', cancel:'Cancel'}).set('defaultFocus', 'cancel').set('title', 'Logout');
+}
+</script>
+<link rel="stylesheet" type="text/css" href="phpcss/customcss-14px.css">
+<style>
+html { height: auto; width: 100%; display: block; margin-left: auto; margin-right: auto; margin-top: 0px; padding-bottom: 0px;}
+.navbar { min-width: 310px; }
+body { background-color: inherit; color: inherit; margin: 0; width: 100%; height: auto; display: block;}
+.ewLayout { width: 100%; }
+.ewContentTable { width: 99%; height: 100%; clear: left;}
+.ewMenuColumn { width: 150px;}
+.ewHeaderRow{line-height:10px;}
+.breadcrumb > li + li:before {content: "/\00a0"; padding: 0 5px; color: #cccccc; }
+.breadcrumb > li > .divider {padding:0; color:#ccc;}
+.ewEditForm>div>div.form-group:nth-child(odd), .ewAddForm>div>div.form-group:nth-child(odd), .ewSearchForm>div>div.form-group:nth-child(odd), .ewUpdateForm>div>div.form-group:nth-child(odd) { margin-bottom: 6px; background-color: #f8edef; margin-left:3px; margin-right:3px;}
+.ewEditForm>div>div.form-group:nth-child(even), .ewAddForm>div>div.form-group:nth-child(even), .ewSearchForm>div>div.form-group:nth-child(even), .ewUpdateForm>div>div.form-group:nth-child(even) { margin-bottom: 6px; background-color: #ffffff; margin-left:3px; margin-right:3px;}
+</style>
+<script type="text/javascript">
+var MS_TOOLTIP_POSITION_FOR_INPUT_ELEMENT = "Bottom";
+</script>
+<script type="text/javascript" src="phpjs/userfn12.js"></script>
+<script type="text/javascript">
+
+// Write your client script here, no need to add script tags.
+</script>
+<style>
+.MasinoHeaderRow:after,.MasinoHeaderRow:before{display:table;content:"";clear:both;}
+.StickyToTop{position:fixed;top:0;width:100%;z-index:10000;}
+.ewLayout { margin-bottom: 80px;}
+.ewFooterRow { position: fixed; width: 100%; bottom:0; z-index: 999;}
+</style>
+<meta name="generator" content="PHPMaker v12.0.3">
+</head>
+<body dir="">
+<div class="ewLayout">
+		<!-- header (begin) --><!-- ** Note: Only licensed users are allowed to change the logo ** -->
+	<div id="ewHeaderRow" class="MasinoHeaderRow hidden-xs ewHeaderRow">
+						<div class="hidden-xs col-sm-5"  style="float: left;" >
+			<div><a href="." title="Stock Accounting"><img src="phpimages/stock_inventory_management_logo_transparant.png" alt=""></a></div>
+		</div>
+										<div class="col-sm-7" style="height: 30px;">
+						  <div class="ewHeaderRow pull-right" style="padding-top: 8px; padding-bottom: 4px;"><strong><span style="font-family:arial;font-size:13px;color:white;text-transform:normal">Stock Accounting&nbsp;&nbsp;</span></strong></div><br>
+					</div>
+						<div class="col-sm-7" style="height: 20px;">
+								  <div class="ewHeaderRow pull-right" id="msUserName" style="padding-top: 8px; padding-bottom: 4px;"><font color="white">User Name: <strong>Administrator</strong> | <a id="logout" href="javascript:void(0);" onclick="AskToLogout();return false;">Logout</a></font></div><br>
+						</div>
+					</div>	
+	<nav id="ewMobileMenu" role="navigation" class="navbar navbar-default visible-xs hidden-print">
+	<div class="container-fluid"><!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button data-target="#ewMenu" data-toggle="collapse" class="navbar-toggle" type="button">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="javascript:void(0);">Stock Accounting</a>
+							</div>
+		<div id="ewMenu" class="collapse navbar-collapse" style="height: auto;"><!-- Begin Main Menu -->
+<!-- Begin Main Menu -->
+<ul id="MobileMenu" class="nav navbar-nav">
+<li id="mmi_dashboard_php" class="active"><a href="dashboard.php">Dashboard</a></li>
+<li id="mmi_a_stock_items" class="dropdown"><a class="ewMenuLink" href="a_stock_itemslist.php?cmd=resetall"><span class="icon-arrow-right"></span></a><a class="ewDropdown" href="a_stock_itemslist.php?cmd=resetall">Stock Items<span class="icon-arrow-down"></span></a><ul class="dropdown-menu" role="menu">
+<li id="mmi_a_stock_categories"><a href="a_stock_categorieslist.php">Stock Categories</a></li>
+<li id="mmi_a_unit_of_measurement"><a href="a_unit_of_measurementlist.php">Unit of Measurement</a></li>
+</ul>
+</li>
+<li id="mmi_a_suppliers"><a href="a_supplierslist.php">Suppliers</a></li>
+<li id="mmi_a_purchases"><a href="a_purchaseslist.php?cmd=resetall">Purchases</a></li>
+<li id="mmi_a_customers"><a href="a_customerslist.php">Customers</a></li>
+<li id="mmi_a_sales"><a href="a_saleslist.php?cmd=resetall">Sales</a></li>
+<li id="mmci_Outstandings" class="dropdown"><a class="ewDropdown" href="#">Outstandings<span class="icon-arrow-down"></span></a><ul class="dropdown-menu" role="menu">
+<li id="mmi_view_purchases_outstandings"><a href="view_purchases_outstandingslist.php">Purchases Outstandings</a></li>
+<li id="mmi_view_sales_outstandings"><a href="view_sales_outstandingslist.php">Sales Outstandings</a></li>
+<li id="mmi_a_payment_transactions"><a href="a_payment_transactionslist.php?cmd=resetall">Payment Transactions</a></li>
+</ul>
+</li>
+<li id="mmci_Administrator" class="dropdown"><a class="ewDropdown" href="#">Administrator<span class="icon-arrow-down"></span></a><ul class="dropdown-menu" role="menu">
+<li id="mmi_announcement"><a href="announcementlist.php">Announcement</a></li>
+<li id="mmi_breadcrumblinks"><a href="breadcrumblinkslist.php">Breadcrumb Links</a></li>
+<li id="mmi_languages"><a href="languageslist.php">Languages</a></li>
+<li id="mmi_settings"><a href="settingslist.php">Application Settings</a></li>
+<li id="mmi_themes"><a href="themeslist.php">Themes/Colors</a></li>
+<li id="mmi_timezone"><a href="timezonelist.php">Timezone</a></li>
+<li id="mmi_users"><a href="userslist.php">Users</a></li>
+<li id="mmci_Manage_Breadcrumb_Links" class="dropdown"><a class="ewDropdown" href="#">Manage Breadcrumb Links<span class="icon-arrow-down"></span></a><ul class="dropdown-menu" role="menu">
+<li id="mmci_Add_New_Breadcrumb_Links"><a href="breadcrumblinksaddsp.php">Add New Breadcrumb Links</a></li>
+<li id="mmci_Check_Breadcrumb_Links"><a href="breadcrumblinkschecksp.php">Check Breadcrumb Links</a></li>
+<li id="mmci_Move_Breadcrumb_Links"><a href="breadcrumblinksmovesp.php">Move Breadcrumb Links</a></li>
+<li id="mmci_Delete_Breadcrumb_Links"><a href="breadcrumblinksdeletesp.php">Delete Breadcrumb Links</a></li>
+</ul>
+</li>
+<li id="mmi_userlevels"><a href="userlevelslist.php">User Levels</a></li>
+</ul>
+</li>
+<li id="mmi_help_categories" class="dropdown"><a class="ewMenuLink" href="help_categorieslist.php"><span class="icon-arrow-right"></span></a><a class="ewDropdown" href="help_categorieslist.php"><i class='glyphicon glyphicon-question-sign'></i> Help (Categories)<span class="icon-arrow-down"></span></a><ul class="dropdown-menu" role="menu">
+<li id="mmi_help"><a href="helplist.php?cmd=resetall"><i class='glyphicon glyphicon-question-sign'></i> Help (Details)</a></li>
+<li id="mmci_About_Us"><a href="javascript:void(0);" onclick="msAboutDialogShow();return false;"><i class='glyphicon glyphicon-info-sign'></i> About Us</a></li>
+<li id="mmci_Terms_and_Conditions"><a href="javascript:void(0);" onclick="msTACDialogShow();return false;"><i class='glyphicon glyphicon-warning-sign'></i> Terms and Conditions</a></li>
+</ul>
+</li>
+<li id="mmci_Settings" class="dropdown"><a class="ewDropdown" href="#"><i class='glyphicon glyphicon-wrench'></i> Settings<span class="icon-arrow-down"></span></a><ul class="dropdown-menu" role="menu">
+<li id="mmci_Font_Name" class="dropdown"><a class="ewDropdown" href="#"><i class='glyphicon glyphicon-text-width'></i> Font Name<span class="icon-arrow-down"></span></a><ul class="dropdown-menu" role="menu">
+<li id="mmci_Arial"><a href="fontarial.php">Arial</a></li>
+<li id="mmci_Calibri"><a href="fontcalibri.php">Calibri</a></li>
+<li id="mmci_Century"><a href="fontcentury.php">Century</a></li>
+<li id="mmci_Century_Gothic"><a href="fontcenturygothic.php">Century Gothic</a></li>
+<li id="mmci_Comic_Sans_MS"><a href="fontcomicsansms.php">Comic Sans MS</a></li>
+<li id="mmci_Courier_New"><a href="fontcouriernew.php">Courier New</a></li>
+<li id="mmci_Futura_Normal"><a href="fontfuturanormal.php">Futura Normal</a></li>
+<li id="mmci_Lucida_Sans"><a href="fontlucidasans.php">Lucida Sans</a></li>
+<li id="mmci_Lucida_Sans_Typewriter"><a href="fontlucidasanstypewriter.php">Lucida Sans Typewriter</a></li>
+<li id="mmci_MS_Gothic"><a href="fontmsgothic.php">MS Gothic</a></li>
+<li id="mmci_MS_Sans_Serif"><a href="fontmssansserif.php">MS Sans Serif</a></li>
+<li id="mmci_Tahoma"><a href="fonttahoma.php">Tahoma&nbsp;<i class='glyphicon glyphicon-check'></i> </a></li>
+<li id="mmci_Times_New_Roman"><a href="fonttimesnewroman.php">Times New Roman</a></li>
+<li id="mmci_Verdana"><a href="fontverdana.php">Verdana</a></li>
+</ul>
+</li>
+<li id="mmci_Font_Size" class="dropdown"><a class="ewDropdown" href="#"><i class='glyphicon glyphicon-text-height'></i> Font Size<span class="icon-arrow-down"></span></a><ul class="dropdown-menu" role="menu">
+<li id="mmci_11px"><a href="font11px.php">11px</a></li>
+<li id="mmci_12px"><a href="font12px.php">12px</a></li>
+<li id="mmci_13px"><a href="font13px.php">13px</a></li>
+<li id="mmci_14px"><a href="font14px.php">14px&nbsp;<i class='glyphicon glyphicon-check'></i> </a></li>
+</ul>
+</li>
+<li id="mmci_Themes2fColors" class="dropdown"><a class="ewDropdown" href="#"><i class='glyphicon glyphicon-picture'></i> Themes/Colors<span class="icon-arrow-down"></span></a><ul class="dropdown-menu" role="menu">
+<li id="mmci_Black"><a href="themeblack.php">Black</a></li>
+<li id="mmci_Blue"><a href="themeblue.php">Blue</a></li>
+<li id="mmci_Dark"><a href="themedark.php">Dark</a></li>
+<li id="mmci_Dark_Glass"><a href="themedarkglass.php">Dark Glass</a></li>
+<li id="mmci_Default"><a href="themedefault.php">Default</a></li>
+<li id="mmci_Glass"><a href="themeglass.php">Glass</a></li>
+<li id="mmci_Gray"><a href="themegray.php">Gray</a></li>
+<li id="mmci_Green"><a href="themegreen.php">Green</a></li>
+<li id="mmci_Maroon"><a href="thememaroon.php">Maroon</a></li>
+<li id="mmci_Olive"><a href="themeolive.php">Olive</a></li>
+<li id="mmci_Professional"><a href="themeprofessional.php">Professional</a></li>
+<li id="mmci_Purple"><a href="themepurple.php">Purple</a></li>
+<li id="mmci_Red"><a href="themered.php">Red&nbsp;<i class='glyphicon glyphicon-check'></i> </a></li>
+<li id="mmci_Sand"><a href="themesand.php">Sand</a></li>
+<li id="mmci_Silver"><a href="themesilver.php">Silver</a></li>
+<li id="mmci_White"><a href="themewhite.php">White</a></li>
+</ul>
+</li>
+<li id="mmci_Menu_Positions" class="dropdown"><a class="ewDropdown" href="#"><i class='glyphicon glyphicon-list'></i> Menu Positions<span class="icon-arrow-down"></span></a><ul class="dropdown-menu" role="menu">
+<li id="mmci_Top_28Horizontal29"><a href="menuhorizontal.php">Top (Horizontal)&nbsp;<i class='glyphicon glyphicon-check'></i> </a></li>
+<li id="mmci_Left_28Vertical29"><a href="menuvertical.php">Left (Vertical)</a></li>
+</ul>
+</li>
+<li id="mmci_Table_Width_Style" class="dropdown"><a class="ewDropdown" href="#"><i class='glyphicon glyphicon-phone'></i> Table Width Style<span class="icon-arrow-down"></span></a><ul class="dropdown-menu" role="menu">
+<li id="mmci_Scroll"><a href="tablewidthstyle1.php">Scroll</a></li>
+<li id="mmci_Auto"><a href="tablewidthstyle2.php">Auto</a></li>
+<li id="mmci_10025"><a href="tablewidthstyle3.php">100%&nbsp;<i class='glyphicon glyphicon-check'></i> </a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li id="mmi_logout"><a href="logout.php"><i class="glyphicon glyphicon-log-out"></i> Logout</a></li>
+</ul>
+<ul class="nav navbar-nav navbar-right"></ul><!-- End Main Menu -->
+		</div><!-- /.navbar-collapse -->
+	</div><!-- /.container-fluid -->
+</nav>
+	<!-- header (end) -->
+	<div id="ewMenuRow" class="hidden-xs">
+		<div class="ewMenu">
+<!-- Begin Main Menu -->
+<div class="navbar navbar-default"><ul id="ewHorizMenu" class="nav navbar-nav">
+<li id="mi_dashboard_php" class="active"><a href="dashboard.php">Dashboard</a></li>
+<li id="mi_a_stock_items" class="dropdown"><a href="a_stock_itemslist.php?cmd=resetall">Stock Items <b class="caret"></b></a><ul class="dropdown-menu" role="menu">
+<li id="mi_a_stock_categories"><a href="a_stock_categorieslist.php">Stock Categories</a></li>
+<li id="mi_a_unit_of_measurement"><a href="a_unit_of_measurementlist.php">Unit of Measurement</a></li>
+</ul>
+</li>
+<li id="mi_a_suppliers"><a href="a_supplierslist.php">Suppliers</a></li>
+<li id="mi_a_purchases"><a href="a_purchaseslist.php?cmd=resetall">Purchases</a></li>
+<li id="mi_a_customers"><a href="a_customerslist.php">Customers</a></li>
+<li id="mi_a_sales"><a href="a_saleslist.php?cmd=resetall">Sales</a></li>
+<li id="mci_Outstandings" class="dropdown"><a href="#">Outstandings <b class="caret"></b></a><ul class="dropdown-menu" role="menu">
+<li id="mi_view_purchases_outstandings"><a href="view_purchases_outstandingslist.php">Purchases Outstandings</a></li>
+<li id="mi_view_sales_outstandings"><a href="view_sales_outstandingslist.php">Sales Outstandings</a></li>
+<li id="mi_a_payment_transactions"><a href="a_payment_transactionslist.php?cmd=resetall">Payment Transactions</a></li>
+</ul>
+</li>
+<li id="mci_Administrator" class="dropdown"><a href="#">Administrator <b class="caret"></b></a><ul class="dropdown-menu" role="menu">
+<li id="mi_announcement"><a href="announcementlist.php">Announcement</a></li>
+<li id="mi_breadcrumblinks"><a href="breadcrumblinkslist.php">Breadcrumb Links</a></li>
+<li id="mi_languages"><a href="languageslist.php">Languages</a></li>
+<li id="mi_settings"><a href="settingslist.php">Application Settings</a></li>
+<li id="mi_themes"><a href="themeslist.php">Themes/Colors</a></li>
+<li id="mi_timezone"><a href="timezonelist.php">Timezone</a></li>
+<li id="mi_users"><a href="userslist.php">Users</a></li>
+<li id="mci_Manage_Breadcrumb_Links" class="dropdown-submenu"><a href="#">Manage Breadcrumb Links</a><ul class="dropdown-menu" role="menu">
+<li id="mci_Add_New_Breadcrumb_Links"><a href="breadcrumblinksaddsp.php">Add New Breadcrumb Links</a></li>
+<li id="mci_Check_Breadcrumb_Links"><a href="breadcrumblinkschecksp.php">Check Breadcrumb Links</a></li>
+<li id="mci_Move_Breadcrumb_Links"><a href="breadcrumblinksmovesp.php">Move Breadcrumb Links</a></li>
+<li id="mci_Delete_Breadcrumb_Links"><a href="breadcrumblinksdeletesp.php">Delete Breadcrumb Links</a></li>
+</ul>
+</li>
+<li id="mi_userlevels"><a href="userlevelslist.php">User Levels</a></li>
+</ul>
+</li>
+<li id="mi_help_categories" class="dropdown"><a href="help_categorieslist.php"><i class='glyphicon glyphicon-question-sign'></i> Help (Categories) <b class="caret"></b></a><ul class="dropdown-menu" role="menu">
+<li id="mi_help"><a href="helplist.php?cmd=resetall"><i class='glyphicon glyphicon-question-sign'></i> Help (Details)</a></li>
+<li id="mci_About_Us"><a href="javascript:void(0);" onclick="msAboutDialogShow();return false;"><i class='glyphicon glyphicon-info-sign'></i> About Us</a></li>
+<li id="mci_Terms_and_Conditions"><a href="javascript:void(0);" onclick="msTACDialogShow();return false;"><i class='glyphicon glyphicon-warning-sign'></i> Terms and Conditions</a></li>
+</ul>
+</li>
+<li id="mci_Settings" class="dropdown"><a href="#"><i class='glyphicon glyphicon-wrench'></i> Settings <b class="caret"></b></a><ul class="dropdown-menu" role="menu">
+<li id="mci_Font_Name" class="dropdown-submenu"><a href="#"><i class='glyphicon glyphicon-text-width'></i> Font Name</a><ul class="dropdown-menu" role="menu">
+<li id="mci_Arial"><a href="fontarial.php">Arial</a></li>
+<li id="mci_Calibri"><a href="fontcalibri.php">Calibri</a></li>
+<li id="mci_Century"><a href="fontcentury.php">Century</a></li>
+<li id="mci_Century_Gothic"><a href="fontcenturygothic.php">Century Gothic</a></li>
+<li id="mci_Comic_Sans_MS"><a href="fontcomicsansms.php">Comic Sans MS</a></li>
+<li id="mci_Courier_New"><a href="fontcouriernew.php">Courier New</a></li>
+<li id="mci_Futura_Normal"><a href="fontfuturanormal.php">Futura Normal</a></li>
+<li id="mci_Lucida_Sans"><a href="fontlucidasans.php">Lucida Sans</a></li>
+<li id="mci_Lucida_Sans_Typewriter"><a href="fontlucidasanstypewriter.php">Lucida Sans Typewriter</a></li>
+<li id="mci_MS_Gothic"><a href="fontmsgothic.php">MS Gothic</a></li>
+<li id="mci_MS_Sans_Serif"><a href="fontmssansserif.php">MS Sans Serif</a></li>
+<li id="mci_Tahoma"><a href="fonttahoma.php">Tahoma&nbsp;<i class='glyphicon glyphicon-check'></i> </a></li>
+<li id="mci_Times_New_Roman"><a href="fonttimesnewroman.php">Times New Roman</a></li>
+<li id="mci_Verdana"><a href="fontverdana.php">Verdana</a></li>
+</ul>
+</li>
+<li id="mci_Font_Size" class="dropdown-submenu"><a href="#"><i class='glyphicon glyphicon-text-height'></i> Font Size</a><ul class="dropdown-menu" role="menu">
+<li id="mci_11px"><a href="font11px.php">11px</a></li>
+<li id="mci_12px"><a href="font12px.php">12px</a></li>
+<li id="mci_13px"><a href="font13px.php">13px</a></li>
+<li id="mci_14px"><a href="font14px.php">14px&nbsp;<i class='glyphicon glyphicon-check'></i> </a></li>
+</ul>
+</li>
+<li id="mci_Themes2fColors" class="dropdown-submenu"><a href="#"><i class='glyphicon glyphicon-picture'></i> Themes/Colors</a><ul class="dropdown-menu" role="menu">
+<li id="mci_Black"><a href="themeblack.php">Black</a></li>
+<li id="mci_Blue"><a href="themeblue.php">Blue</a></li>
+<li id="mci_Dark"><a href="themedark.php">Dark</a></li>
+<li id="mci_Dark_Glass"><a href="themedarkglass.php">Dark Glass</a></li>
+<li id="mci_Default"><a href="themedefault.php">Default</a></li>
+<li id="mci_Glass"><a href="themeglass.php">Glass</a></li>
+<li id="mci_Gray"><a href="themegray.php">Gray</a></li>
+<li id="mci_Green"><a href="themegreen.php">Green</a></li>
+<li id="mci_Maroon"><a href="thememaroon.php">Maroon</a></li>
+<li id="mci_Olive"><a href="themeolive.php">Olive</a></li>
+<li id="mci_Professional"><a href="themeprofessional.php">Professional</a></li>
+<li id="mci_Purple"><a href="themepurple.php">Purple</a></li>
+<li id="mci_Red"><a href="themered.php">Red&nbsp;<i class='glyphicon glyphicon-check'></i> </a></li>
+<li id="mci_Sand"><a href="themesand.php">Sand</a></li>
+<li id="mci_Silver"><a href="themesilver.php">Silver</a></li>
+<li id="mci_White"><a href="themewhite.php">White</a></li>
+</ul>
+</li>
+<li id="mci_Menu_Positions" class="dropdown-submenu"><a href="#"><i class='glyphicon glyphicon-list'></i> Menu Positions</a><ul class="dropdown-menu" role="menu">
+<li id="mci_Top_28Horizontal29"><a href="menuhorizontal.php">Top (Horizontal)&nbsp;<i class='glyphicon glyphicon-check'></i> </a></li>
+<li id="mci_Left_28Vertical29"><a href="menuvertical.php">Left (Vertical)</a></li>
+</ul>
+</li>
+<li id="mci_Table_Width_Style" class="dropdown-submenu"><a href="#"><i class='glyphicon glyphicon-phone'></i> Table Width Style</a><ul class="dropdown-menu" role="menu">
+<li id="mci_Scroll"><a href="tablewidthstyle1.php">Scroll</a></li>
+<li id="mci_Auto"><a href="tablewidthstyle2.php">Auto</a></li>
+<li id="mci_10025"><a href="tablewidthstyle3.php">100%&nbsp;<i class='glyphicon glyphicon-check'></i> </a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li id="mi_logout"><a href="logout.php"><i class="glyphicon glyphicon-log-out"></i> Logout</a></li>
+</ul>
+<ul class="nav navbar-nav navbar-right"></ul></div><!-- End Main Menu -->
+		</div>
+	</div>
+	<!-- content (begin) -->
+	<div id="ewContentTable" class="ewContentTable">
+		<div id="ewContentRow">
+			<div id="ewContentColumn" class="ewContentColumn">
+				<!-- right column (begin) -->
+				<div class="ewToolbar">
+<ul class="breadcrumb ewBreadcrumbs"><li id="ewBreadcrumb1"><a href="index.php" title="Home" class="ewHome"><span data-phrase="HomePage" class="glyphicon glyphicon-home ewIcon" data-caption="Home"></span></a></li><li id="ewBreadcrumb2" class="active"><span id="ewPageCaption">Dashboard</span></li>&nbsp;<a href='javascript:void(0);' id='helponline' onclick='msHelpDialogShow()' title='Help'><span class='glyphicon glyphicon-question-sign ewIconHelp'></span></a></ul><div class="ewLanguageOption"><div class="btn-group" data-toggle="buttons"><label class="btn btn-default ewTooltip active" data-container="body" data-placement="bottom" title="English"><input type="radio" name="ewLanguage" autocomplete="off" onchange="ew_SetLanguage(this);" value="en" checked>en</label><label class="btn btn-default ewTooltip" data-container="body" data-placement="bottom" title="Indonesian"><input type="radio" name="ewLanguage" autocomplete="off" onchange="ew_SetLanguage(this);" value="id">id</label></div></div><div class="clearfix"></div>
+</div>
+<div class="row">
+<div class="col-lg-6 col-md-6 col-sm-6">
+<div class="panel panel-default">
+  <div class="panel-heading"><strong>Purchases</strong></div>
+  <div class="panel-body">
+<table class="table table-bordered table-striped ewDbTable"><tbody><tr><th>Total Amount</th><td style='text-align: right;'>500,390,000.00</td></tr><tr><th>Total Payment</th><td style='text-align: right;'>471,300,000.00</td></tr><tr><th>Total Balance</th><td style='text-align: right;'>29,090,000.00</td></tr></tbody></table>  </div>
+</div>
+</div>
+<div class="col-lg-6 col-md-6 col-sm-6">
+<div class="panel panel-default">
+  <div class="panel-heading"><strong>Sales</strong></div>
+  <div class="panel-body">
+<table class="table table-bordered table-striped ewDbTable"><tbody><tr><th>Total Amount</th><td style='text-align: right;'>6,129,000.00</td></tr><tr><th>Discount Amount</th><td style='text-align: right;'>292,210.00</td></tr><tr><th>Tax Amount</th><td style='text-align: right;'>584,420.00</td></tr><tr><th>Total Payment</th><td style='text-align: right;'>4,371,210.00</td></tr><tr><th>Total Balance</th><td style='text-align: right;'>2,050,000.00</td></tr></tbody></table>  </div>
+</div>
+</div>
+<div class="col-lg-6 col-md-6 col-sm-6">
+<div class="panel panel-default">
+  <div class="panel-heading"><strong>Purchases Outstandings</strong></div>
+  <div class="panel-body">
+<table class="table table-bordered table-striped ewDbTable"><thead><tr><th>Supplier Name</th><th>Balance</th></tr></thead><tbody><tr><td>First Supplier</td><td style='text-align: right;'>16,040,000.00</td></tr><tr><td>Second Supplier</td><td style='text-align: right;'>7,750,000.00</td></tr><tr><td>Third Supplier</td><td style='text-align: right;'>3,600,000.00</td></tr><tr><td>Fourth Supplier</td><td style='text-align: right;'>1,700,000.00</td></tr></tbody></table>  </div>
+</div>
+</div>
+<div class="col-lg-6 col-md-6 col-sm-6">
+<div class="panel panel-default">
+  <div class="panel-heading"><strong>Sales Outstandings</strong></div>
+  <div class="panel-body">
+<table class="table table-bordered table-striped ewDbTable"><thead><tr><th>Customer Name</th><th>Balance</th></tr></thead><tbody><tr><td>First Customer</td><td style='text-align: right;'>720,000.00</td></tr><tr><td>Second Customer</td><td style='text-align: right;'>150,000.00</td></tr><tr><td>Third Customer</td><td style='text-align: right;'>280,000.00</td></tr><tr><td>Fourth Customer</td><td style='text-align: right;'>900,000.00</td></tr></tbody></table>  </div>
+</div>
+</div>
+</div>
+				<!-- right column (end) -->
+							</div>
+		</div>
+	</div>
+	<!-- content (end) -->
+	<!-- footer (begin) --><!-- ** Note: Only licensed users are allowed to remove or change the following copyright statement. ** -->
+	<div id="ewFooterRow" class="ewFooterRow">
+		<div class="ewFooterText">
+			&copy;2015 <a href='http://www.ilovephpmaker.com' title='I Love PHPMaker' target='_blank'>Masino Sinaga</a>. All rights reserved.						| <a href="javascript:void(0);" id="tac" >Terms and Conditions</a>
+									| <a href="javascript:void(0);" id="about" >About Us</a>
+									| <a href="javascript:void(0);" id="gotop" onclick="MGJS.goTop();return false;">Back to Top</a>
+						<span class="msTimer"></span>
+		</div>
+	</div>
+	<!-- footer (end) -->
+</div>
+<!-- terms and conditions dialog -->
+<div id="msTACDialog" class="modal fade"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">x</span></button><h4 class="modal-title">Terms and Conditions</h4></div><div class="modal-body">This is the terms and conditions text from database. You can edit this text from the languages table ...</div><div class="modal-footer">&nbsp;<a href="printtac.php">Print</a>&nbsp;&nbsp;<button type="button" class="btn btn-primary ewButton" data-dismiss="modal" aria-hidden="true">OK</button></div></div></div></div>
+<div id="tacs" style="display:none;">
+This is the terms and conditions text from database. You can edit this text from the languages table ...</div>
+<script type="text/javascript">
+	alertify.tacdlg || alertify.dialog('tacdlg',function(){return{main:function(content){this.setContent(content);},setup:function(){return{buttons:[{text:"OK",key:27, className:'btn btn-primary'}],focus:{element:0}};},build:function(){iframe=document.createElement('iframe');this.elements.content.appendChild(iframe);this.elements.body.style.minHeight=screen.height*.5+'px';}};});
+	$('#tac').click(function(){alertify.tacdlg($("#tacs").html()).setting({'resizable':true,'maximizable': true}).set('title','Terms and Conditions');});
+</script>
+<!-- about dialog -->
+	<div id="msAboutDialog" class="modal fade"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">x</span></button><h4 class="modal-title">About Us</h4></div><div class="modal-body"><span class='dialogtitle' style='white-space: nowrap;'>Stock Inventory Management, version 1.0</span><br><br>Managing your stock inventory so easily...<br><br><br><br><br>Web Developer:<br></span>Masino Sinaga (masino.sinaga@gmail.com)<br>Website: <a href='http://www.ilovephpmaker.com' title='I Love PHPMaker' target='_blank'>http://www.ilovephpmaker.com</a><br><br><br></div><div class="modal-footer"><button type="button" class="btn btn-primary ewButton" data-dismiss="modal" aria-hidden="true">OK</button></div></div></div></div>
+<div id="abtus" style="display:none;">
+<span class='dialogtitle' style='white-space: nowrap;'>Stock Inventory Management, version 1.0</span><br><br>Managing your stock inventory so easily...<br><br><br><br><br>Web Developer:<br></span>Masino Sinaga (masino.sinaga@gmail.com)<br>Website: <a href='http://www.ilovephpmaker.com' title='I Love PHPMaker' target='_blank'>http://www.ilovephpmaker.com</a><br><br><br></div>
+<script type="text/javascript">
+	alertify.abtusdlg || alertify.dialog('abtusdlg',function(){return{main:function(content){this.setContent(content);},setup:function(){return{buttons:[{text:"OK",key:27, className:'btn btn-primary'}],focus:{element:0}};},build:function(){iframe=document.createElement('iframe');this.elements.content.appendChild(iframe);this.elements.body.style.minHeight=screen.height*.5+'px';}};});
+	$('#about').click(function(){alertify.abtusdlg($("#abtus").html()).setting({'resizable':true,'maximizable': true}).set('title','About Us');});
+</script>
+<!-- help dialog -->
+<div id="hlp" style="display:none;">
+Sorry - no help available for this page</div>
+<script type="text/javascript">
+	alertify.hlpdlg || alertify.dialog('hlpdlg',function(){return{main:function(content){this.setContent(content);},setup:function(){return{buttons:[{text:"OK",key:27, className:'btn btn-primary'}],focus:{element:0}};},build:function(){iframe=document.createElement('iframe');this.elements.content.appendChild(iframe);this.elements.body.style.minHeight=screen.height*.5+'px';}};});
+	$('#helponline').click(function(){alertify.hlpdlg($("#hlp").html()).setting({'resizable':true,'maximizable': true}).set('title','Help');});
+</script>
+<!-- search dialog -->
+<div id="ewSearchDialog" class="modal" role="dialog" aria-labelledby="ewSearchDialogTitle" aria-hidden="true"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="ewSearchDialogTitle"></h4></div><div class="modal-body"></div><div class="modal-footer"><button type="button" class="btn btn-primary ewButton">Search</button><button type="button" class="btn btn-default ewButton" data-dismiss="modal">Cancel</button></div></div></div></div>
+<!-- add option dialog -->
+<div id="ewAddOptDialog" class="modal" role="dialog" aria-labelledby="ewAddOptDialogTitle" aria-hidden="true"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="ewAddOptDialogTitle"></h4></div><div class="modal-body"></div><div class="modal-footer"><button type="button" class="btn btn-primary ewButton">Add</button><button type="button" class="btn btn-default ewButton" data-dismiss="modal">Cancel</button></div></div></div></div>
+<!-- email dialog -->
+<div id="ewEmailDialog" class="modal" role="dialog" aria-labelledby="ewEmailDialogTitle" aria-hidden="true"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="ewEmailDialogTitle"></h4></div>
+<div class="modal-body">
+<form id="ewEmailForm" class="form-horizontal ewForm ewEmailForm" action="dashboard.php">
+<input type="hidden" name="token" value="XyPOg-nlxIui0k3yyUIuiA..">
+<input type="hidden" name="export" id="export" value="email">
+	<div class="form-group">
+		<label class="col-sm-2 control-label ewLabel" for="sender">From</label>
+		<div class="col-sm-10"><input type="text" class="form-control ewControl" name="sender" id="sender"></div>
+	</div>
+	<div class="form-group">
+		<label class="col-sm-2 control-label ewLabel" for="recipient">To</label>
+		<div class="col-sm-10"><input type="text" class="form-control ewControl" name="recipient" id="recipient"></div>
+	</div>
+	<div class="form-group">
+		<label class="col-sm-2 control-label ewLabel" for="cc">Cc</label>
+		<div class="col-sm-10"><input type="text" class="form-control ewControl" name="cc" id="cc"></div>
+	</div>
+	<div class="form-group">
+		<label class="col-sm-2 control-label ewLabel" for="bcc">Bcc</label>
+		<div class="col-sm-10"><input type="text" class="form-control ewControl" name="bcc" id="bcc"></div>
+	</div>
+	<div class="form-group">
+		<label class="col-sm-2 control-label ewLabel" for="subject">Subject</label>
+		<div class="col-sm-10"><input type="text" class="form-control ewControl" name="subject" id="subject"></div>
+	</div>
+	<div class="form-group">
+		<label class="col-sm-2 control-label ewLabel" for="message">Message</label>
+		<div class="col-sm-10"><textarea class="form-control ewControl" rows="6" name="message" id="message"></textarea></div>
+	</div>
+<!--
+	<div class="form-group">
+		<label class="col-sm-2 control-label ewLabel">Send as</label>
+		<div class="col-sm-10">
+		<label class="radio-inline ewRadio" style="white-space: nowrap;"><input type="radio" name="contenttype" value="html" checked="checked">HTML</label>
+		<label class="radio-inline ewRadio" style="white-space: nowrap;"><input type="radio" name="contenttype" value="url">URL</label>
+		</div>
+	</div>
+-->
+	<input type="hidden" name="contenttype" value="html">
+</form>
+</div><div class="modal-footer"><button type="button" class="btn btn-primary ewButton">Send</button><button type="button" class="btn btn-default ewButton" data-dismiss="modal">Cancel</button></div></div></div></div>
+<!-- message box -->
+<div id="ewMsgBox" class="modal" role="dialog" aria-hidden="true"><div class="modal-dialog"><div class="modal-content"><div class="modal-body"></div><div class="modal-footer"><button type="button" class="btn btn-primary ewButton" data-dismiss="modal">OK</button></div></div></div></div>
+<!-- prompt -->
+<div id="ewPrompt" class="modal" role="dialog" aria-hidden="true"><div class="modal-dialog"><div class="modal-content"><div class="modal-body"></div><div class="modal-footer"><button type="button" class="btn btn-primary ewButton">OK</button><button type="button" class="btn btn-default ewButton" data-dismiss="modal">Cancel</button></div></div></div></div>
+<!-- session timer -->
+<div id="ewTimer" class="modal" role="dialog" aria-hidden="true"><div class="modal-dialog"><div class="modal-content"><div class="modal-body"></div><div class="modal-footer"><button type="button" class="btn btn-primary ewButton" data-dismiss="modal">OK</button></div></div></div></div>
+<!-- tooltip -->
+<div id="ewTooltip"></div>
+<script type="text/javascript" src="phpjs/userevt12.js"></script>
+<script type="text/javascript">
+
+// Write your global startup script here
+// document.write("page loaded");
+
+</script>
+<script type="text/javascript">
+$(document).ready(function(){var mymenu=$('#ewMenuRow').offset().top;var mynav=$('nav').offset().top;$(window).scroll(function(){var woindowScroll= $(window).scrollTop();(woindowScroll>mymenu)?$('#ewMenuRow').addClass('StickyToTop'):$('#ewMenuRow').removeClass('StickyToTop');(woindowScroll>mynav)?$('nav').addClass('StickyToTop'):$('nav').removeClass('StickyToTop');});});
+</script>
+</body>
+<script>'undefined'=== typeof _trfq || (window._trfq = []);'undefined'=== typeof _trfd && (window._trfd=[]),_trfd.push({'tccl.baseHost':'secureserver.net'},{'ap':'cpsh-oh'},{'server':'sg2plzcpnl506005'},{'dcenter':'sg2'},{'cp_id':'10972192'},{'cp_cl':'8'}) // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.</script><script src='https://img1.wsimg.com/traffic-assets/js/tccl.min.js'></script></html>

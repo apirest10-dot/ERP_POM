@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+	Users &laquo; Stock Accounting	</title>
+	<meta charset="utf-8">
+<!-- <link rel="stylesheet" type="text/css" href="bootstrap3/css/bootstrap.css"> -->
+<link rel="stylesheet" type="text/css" href="bootstrap3/css/bootstrap-tahoma-14px.css">
+<!-- Optional theme -->
+<link rel="stylesheet" type="text/css" href="bootstrap3/css/bootstrap-theme.css">
+<link rel="stylesheet" type="text/css" href="phpcss/jquery.fileupload.css">
+<link rel="stylesheet" type="text/css" href="phpcss/jquery.fileupload-ui.css">
+<link rel="stylesheet" type="text/css" href="colorbox/colorbox.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="phpcss/theme-red.css">
+<script type="text/javascript" src="jquery/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="jquery/jquery.storageapi.min.js"></script>
+<script type="text/javascript" src="jquery/pStrength.jquery.js"></script>
+<script type="text/javascript" src="jquery/pGenerator.jquery.js"></script>
+<script type="text/javascript" src="phpjs/scrolltotop.js"></script>
+<script type="text/javascript" src="phpjs/helpdialog.js"></script>
+<link rel="stylesheet" type="text/css" href="alertifyjs/css/alertify.min.css">
+<link rel="stylesheet" type="text/css" href="alertifyjs/css/themes/bootstrap.min.css">
+<script type="text/javascript" src="alertifyjs/alertify.min.js"></script>
+<link rel="stylesheet" type="text/css" href="bootstrap3/css/bootstrap-modal.css">
+<script type="text/javascript" src="bootstrap3/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="phpjs/typeahead.bundle.min.js"></script>
+<script type="text/javascript" src="jqueryfileupload/jquery.ui.widget.js"></script>
+<script type="text/javascript" src="jqueryfileupload/load-image.all.min.js"></script>
+<script type="text/javascript" src="jqueryfileupload/jqueryfileupload.min.js"></script>
+<script type="text/javascript" src="colorbox/jquery.colorbox-min.js"></script>
+<script type="text/javascript" src="phpjs/mobile-detect.min.js"></script>
+<script type="text/javascript" src="phpjs/moment.min.js"></script>
+<style>
+</style>
+<script type="text/javascript" src="phpjs/autonumeric.js"></script>
+<script type="text/javascript" src="ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="phpjs/eweditor.js"></script>
+<link href="calendar/calendar.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="calendar/calendar.min.js"></script>
+<script type="text/javascript" src="calendar/calendar-setup.js"></script>
+<script type="text/javascript" src="phpjs/ewcalendar.js"></script>
+<script type="text/javascript">
+var EW_LANGUAGE_ID = "en";
+var EW_DATE_SEPARATOR = "/"; // Default date separator
+var EW_DEFAULT_DATE_FORMAT = "yyyy/mm/dd"; // Default date format
+var EW_DECIMAL_POINT = ".";
+var EW_THOUSANDS_SEP = ",";
+var EW_MIN_PASSWORD_STRENGTH = 60;
+var EW_GENERATE_PASSWORD_LENGTH = 16;
+var EW_GENERATE_PASSWORD_UPPERCASE = true;
+var EW_GENERATE_PASSWORD_LOWERCASE = true;
+var EW_GENERATE_PASSWORD_NUMBER = true;
+var EW_GENERATE_PASSWORD_SPECIALCHARS = false;
+var EW_SESSION_TIMEOUT = 180; // Session timeout time (seconds)
+var EW_SESSION_TIMEOUT_COUNTDOWN = 60; // Count down time to session timeout (seconds)
+var EW_SESSION_KEEP_ALIVE_INTERVAL = 180; // Keep alive interval (seconds)
+var EW_RELATIVE_PATH = ""; // Relative path
+var EW_SESSION_URL = EW_RELATIVE_PATH + "ewsession12.php"; // Session URL
+var EW_IS_LOGGEDIN = false; // Is logged in
+var EW_IS_AUTOLOGIN = false; // Is logged in with option "Auto login until I logout explicitly"
+var EW_LOGOUT_URL = EW_RELATIVE_PATH + "logout.php"; // Logout URL
+var EW_LOOKUP_FILE_NAME = "ewlookup12.php"; // Lookup file name
+var EW_AUTO_SUGGEST_MAX_ENTRIES = 10; // Auto-Suggest max entries
+var EW_MAX_EMAIL_RECIPIENT = 3;
+var EW_DISABLE_BUTTON_ON_SUBMIT = true;
+var EW_IMAGE_FOLDER = "phpimages/"; // Image folder
+var EW_UPLOAD_URL = "ewupload12.php"; // Upload URL
+var EW_UPLOAD_THUMBNAIL_WIDTH = 200; // Upload thumbnail width
+var EW_UPLOAD_THUMBNAIL_HEIGHT = 0; // Upload thumbnail height
+var EW_MULTIPLE_UPLOAD_SEPARATOR = ","; // Upload multiple separator
+var EW_USE_COLORBOX = true;
+var EW_USE_JAVASCRIPT_MESSAGE = 1; // old method: --> get from PHPMaker project setting --> true;
+var EW_MOBILE_DETECT = new MobileDetect(window.navigator.userAgent);
+var EW_IS_MOBILE = EW_MOBILE_DETECT.mobile() ? true : false;
+var EW_PROJECT_STYLESHEET_FILENAME = "phpcss/theme-red.css"; // Project style sheet
+var EW_PDF_STYLESHEET_FILENAME = "phpcss/ewpdf.css"; // Pdf style sheet
+var EW_TOKEN = "sdc5lDjCbH2E_KJVkohe5g..";
+
+// var EW_CSS_FLIP = false;
+var EW_CSS_FLIP = false;
+var EW_CONFIRM_CANCEL = true;
+</script>
+<script type="text/javascript" src="phpjs/jsrender.min.js"></script>
+<script type="text/javascript" src="phpjs/ewp12.js"></script>
+<script type="text/javascript">
+var ewVar = [];
+var ewLanguage = new ew_Language({"clickrecaptcha":"Please click reCAPTCHA","confirmcancel":"Do you want to cancel?","lightboxtitle":" ","lightboxcurrent":"image {current} of {total}","lightboxprevious":"previous","lightboxnext":"next","lightboxclose":"close","lightboxxhrerror":"This content failed to load.","lightboximgerror":"This image failed to load.","countselected":"%s selected","currentpassword":"Current password: ","deleteconfirmmsg":"Do you want to delete the selected record(s)?","deletefilterconfirm":"Delete filter %s?","enterfiltername":"Enter filter name","enternewpassword":"Please enter new password","enteroldpassword":"Please enter old password","enterpassword":"Please enter password","enterpwd":"Please enter password","enterusername":"Please enter username","entervalidatecode":"Enter the validation code shown","entersenderemail":"Please enter sender email","enterpropersenderemail":"Exceed maximum sender email count or email address incorrect","enterrecipientemail":"Please enter recipient email","enterproperrecipientemail":"Exceed maximum recipient email count or email address incorrect","enterproperccemail":"Exceed maximum cc email count or email address incorrect","enterproperbccemail":"Exceed maximum bcc email count or email address incorrect","entersubject":"Please enter subject","enteruid":"Please enter user ID","entervalidemail":"Please enter valid Email Address","exporttoemailtext":"Email","filtername":"Filter name","incorrectemail":"Incorrect email","incorrectfield":"Incorrect field","incorrectfloat":"Incorrect floating point number","incorrectguid":"Incorrect GUID","incorrectinteger":"Incorrect integer","incorrectphone":"Incorrect phone number","incorrectregexp":"Regular expression not matched","incorrectrange":"Number must be between %1 and %2","incorrectssn":"Incorrect social security number","incorrecttime":"Incorrect time (hh:mm:ss)","incorrectzip":"Incorrect ZIP code","insertfailed":"Insert failed","invalidrecord":"Invalid Record! Key is null","loading":"Loading...","maxfilesize":"Max. file size (%s bytes) exceeded.","messageok":"OK","mismatchpassword":"Mismatch Password","next":"Next","noaddrecord":"No records to be added","nofieldselected":"No field selected for update","norecordselected":"No records selected","passwordstrength":"Strength: %p","passwordtoosimple":"Your password is too simple","pleaseselect":"Please select","pleasewait":"Please wait...","prev":"Prev","quicksearchauto":"Auto","quicksearchautoshort":"","quicksearchall":"All keywords","quicksearchallshort":"All","quicksearchany":"Any keywords","quicksearchanyshort":"Any","quicksearchexact":"Exact match","quicksearchexactshort":"Exact","sendemailsuccess":"Email sent successfully","sessionwillexpire":"Your session will expire in %s seconds. Click OK to continue your session.","sessionexpired":"Your session has expired. Please login again!","uploading":"Uploading...","uploadstart":"Start","uploadcancel":"Cancel","uploaddelete":"Delete","uploadoverwrite":"Overwrite old file?","uploaderrmsgmaxfilesize":"File is too big","uploaderrmsgminfilesize":"File is too small","uploaderrmsgacceptfiletypes":"File type not allowed","uploaderrmsgmaxnumberoffiles":"Maximum number of files exceeded","uploaderrmsgmaxfilelength":"Total length of file names exceeds field length","useradministrator":"Administrator","useranonymous":"Anonymous","userdefault":"Default","userleveladministratorname":"User level name for user level -1 must be 'Administrator'","userlevelanonymousname":"User level name for user level -2 must be 'Anonymous'","userlevelidinteger":"User Level ID must be integer","userleveldefaultname":"User level name for user level 0 must be 'Default'","userlevelidincorrect":"User defined User Level ID must be larger than 0","userlevelnameincorrect":"User defined User Level name cannot be 'Administrator' or 'Default'","valuenotexist":"Value does not exist","wrongfiletype":"File type is not allowed.","alertifysessionextended":"Session has been successfully extended","alertifyalert":"Alert","alertifyconfirm":"Confirm","alertifyprompt":"Prompt","alertifyadd":"Adding ...","alertifyedit":"Updating ...","alertifysavegrid":"Saving the grid ...","alertifydelete":"Deleting ...","alertifycancel":"Cancelling ...","alertifyprocessing":"Processing ...","myokmessage":"OK","mycancelmessage":"Cancel","sessioncountdown":"Your session will expire in %s seconds."});</script>
+<script type="text/javascript">
+
+function createCookie(name, value, days) { if (days) { var date = new Date(); date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000)); var expires = "; expires=" + date.toGMTString(); } else var expires = ""; document.cookie = name + "=" + value + expires + "; path=/"; }
+
+function getCookie(c_name) { if (document.cookie.length > 0) { c_start = document.cookie.indexOf(c_name + "="); if (c_start != -1) { c_start = c_start + c_name.length + 1; c_end = document.cookie.indexOf(";", c_start); if (c_end == -1) { c_end = document.cookie.length; } return unescape(document.cookie.substring(c_start, c_end)); } } return ""; }
+</script>
+<script type="text/javascript">
+paceOptions = {
+  ajax: false, // disabled
+  document: false, // disabled
+  eventLag: false, // disabled
+  restartOnPushState: false,
+  elements: {
+    selectors: ['#ewTooltip']
+  }
+};
+</script>
+<script type="text/javascript" src="loading/pace.min.js"></script>
+<link rel="stylesheet" type="text/css" href="loading/themes/pace-theme-corner-indicator.css">
+<script type="text/javascript">
+
+// jQuery for auto hide message after 3 seconds, by Masino Sinaga, October 18, 2011
+$(document).ready(function() {
+	$("p#ewSuccessMessage").show().delay(3000).queue(function(n) {$(this).hide('slow'); n();}); 
+});
+</script>
+<script type="text/javascript">
+alertify.defaults.pinnable = true;
+alertify.defaults.modal = false;
+alertify.defaults.transition = "zoom";
+alertify.defaults.theme.ok = "btn btn-primary";
+alertify.defaults.theme.cancel = "btn btn-danger";
+alertify.defaults.theme.input = "form-control";
+
+function AskToLogout() {
+	alertify.confirm("Are you sure you want to logout?",function(e){if(e){alertify.success("Processing ..."); document.location.href = 'logout.php';}}).set('labels', {ok:'OK!', cancel:'Cancel'}).set('defaultFocus', 'cancel').set('title', 'Logout');
+}
+</script>
+<link rel="stylesheet" type="text/css" href="phpcss/customcss-14px.css">
+<style>
+html { height: auto; width: 100%; display: block; margin-left: auto; margin-right: auto; margin-top: 0px; padding-bottom: 0px;}
+.navbar { min-width: 310px; }
+body { background-color: inherit; color: inherit; margin: 0; width: 100%; height: auto; display: block;}
+.ewLayout { width: 100%; }
+.ewContentTable { width: 99%; height: 100%; clear: left;}
+.ewMenuColumn { width: 150px;}
+.ewHeaderRow{line-height:10px;}
+.breadcrumb > li + li:before {content: "/\00a0"; padding: 0 5px; color: #cccccc; }
+.breadcrumb > li > .divider {padding:0; color:#ccc;}
+.ewEditForm>div>div.form-group:nth-child(odd), .ewAddForm>div>div.form-group:nth-child(odd), .ewSearchForm>div>div.form-group:nth-child(odd), .ewUpdateForm>div>div.form-group:nth-child(odd) { margin-bottom: 6px; background-color: #f8edef; margin-left:3px; margin-right:3px;}
+.ewEditForm>div>div.form-group:nth-child(even), .ewAddForm>div>div.form-group:nth-child(even), .ewSearchForm>div>div.form-group:nth-child(even), .ewUpdateForm>div>div.form-group:nth-child(even) { margin-bottom: 6px; background-color: #ffffff; margin-left:3px; margin-right:3px;}
+</style>
+<script type="text/javascript">
+var MS_TOOLTIP_POSITION_FOR_INPUT_ELEMENT = "Bottom";
+</script>
+<script type="text/javascript" src="phpjs/userfn12.js"></script>
+<script type="text/javascript">
+
+// Write your client script here, no need to add script tags.
+</script>
+<style>
+.MasinoHeaderRow:after,.MasinoHeaderRow:before{display:table;content:"";clear:both;}
+.StickyToTop{position:fixed;top:0;width:100%;z-index:10000;}
+.ewLayout { margin-bottom: 80px;}
+.ewFooterRow { position: fixed; width: 100%; bottom:0; z-index: 999;}
+</style>
+<meta name="generator" content="PHPMaker v12.0.3">
+</head>
+<body dir="">
+<div class="ewLayout">
+		<!-- header (begin) --><!-- ** Note: Only licensed users are allowed to change the logo ** -->
+	<div id="ewHeaderRow" class="MasinoHeaderRow hidden-xs ewHeaderRow">
+						<div class="hidden-xs col-sm-5"  style="float: left;" >
+			<div><a href="." title="Stock Accounting"><img src="phpimages/stock_inventory_management_logo_transparant.png" alt=""></a></div>
+		</div>
+										<div class="col-sm-7" style="height: 30px;">
+						  <div class="ewHeaderRow pull-right" style="padding-top: 8px; padding-bottom: 4px;"><strong><span style="font-family:arial;font-size:13px;color:white;text-transform:normal">Stock Accounting&nbsp;&nbsp;</span></strong></div><br>
+					</div>
+						<div class="col-sm-7" style="height: 20px;">
+								  <div class="ewHeaderRow pull-right" id="msUserName" style="padding-top: 8px; padding-bottom: 4px;"><font color="white"></font></div><br>
+						</div>
+					</div>	
+	<nav id="ewMobileMenu" role="navigation" class="navbar navbar-default visible-xs hidden-print">
+	<div class="container-fluid"><!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button data-target="#ewMenu" data-toggle="collapse" class="navbar-toggle" type="button">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="javascript:void(0);">Stock Accounting</a>
+							</div>
+		<div id="ewMenu" class="collapse navbar-collapse" style="height: auto;"><!-- Begin Main Menu -->
+<!-- Begin Main Menu -->
+<ul id="MobileMenu" class="nav navbar-nav">
+<li id="mmi_help_categories" class="dropdown"><a class="ewMenuLink" href="help_categorieslist.php"><span class="icon-arrow-right"></span></a><a class="ewDropdown" href="help_categorieslist.php"><i class='glyphicon glyphicon-question-sign'></i> Help (Categories)<span class="icon-arrow-down"></span></a><ul class="dropdown-menu" role="menu">
+<li id="mmi_help"><a href="helplist.php?cmd=resetall"><i class='glyphicon glyphicon-question-sign'></i> Help (Details)</a></li>
+<li id="mmci_About_Us"><a href="javascript:void(0);" onclick="msAboutDialogShow();return false;"><i class='glyphicon glyphicon-info-sign'></i> About Us</a></li>
+<li id="mmci_Terms_and_Conditions"><a href="javascript:void(0);" onclick="msTACDialogShow();return false;"><i class='glyphicon glyphicon-warning-sign'></i> Terms and Conditions</a></li>
+</ul>
+</li>
+<li id="mmi_login" class="active"><a href="login.php"><i class="glyphicon glyphicon-log-in"></i> Login</a></li>
+</ul>
+<ul class="nav navbar-nav navbar-right"></ul><!-- End Main Menu -->
+		</div><!-- /.navbar-collapse -->
+	</div><!-- /.container-fluid -->
+</nav>
+	<!-- header (end) -->
+	<div id="ewMenuRow" class="hidden-xs">
+		<div class="ewMenu">
+<!-- Begin Main Menu -->
+<div class="navbar navbar-default"><ul id="ewHorizMenu" class="nav navbar-nav">
+<li id="mi_help_categories" class="dropdown"><a href="help_categorieslist.php"><i class='glyphicon glyphicon-question-sign'></i> Help (Categories) <b class="caret"></b></a><ul class="dropdown-menu" role="menu">
+<li id="mi_help"><a href="helplist.php?cmd=resetall"><i class='glyphicon glyphicon-question-sign'></i> Help (Details)</a></li>
+<li id="mci_About_Us"><a href="javascript:void(0);" onclick="msAboutDialogShow();return false;"><i class='glyphicon glyphicon-info-sign'></i> About Us</a></li>
+<li id="mci_Terms_and_Conditions"><a href="javascript:void(0);" onclick="msTACDialogShow();return false;"><i class='glyphicon glyphicon-warning-sign'></i> Terms and Conditions</a></li>
+</ul>
+</li>
+<li id="mi_login" class="active"><a href="login.php"><i class="glyphicon glyphicon-log-in"></i> Login</a></li>
+</ul>
+<ul class="nav navbar-nav navbar-right"></ul></div><!-- End Main Menu -->
+		</div>
+	</div>
+	<!-- content (begin) -->
+	<div id="ewContentTable" class="ewContentTable">
+		<div id="ewContentRow">
+			<div id="ewContentColumn" class="ewContentColumn">
+				<!-- right column (begin) -->
+				<script type="text/javascript">
+
+// Write your client script here, no need to add script tags.
+</script>
+<script type="text/javascript" src="phpjs/login_dialog.js"></script>
+<script type="text/javascript">
+var flogin = new ew_Form("flogin");
+
+// Validate function
+flogin.Validate = function()
+{
+	var fobj = this.Form;
+	if (!this.ValidateRequired)
+		return true; // Ignore validation
+	if (!ew_HasValue(fobj.username))
+		return this.OnError(fobj.username, ewLanguage.Phrase("EnterUid"));
+	if (!ew_HasValue(fobj.password))
+		return this.OnError(fobj.password, ewLanguage.Phrase("EnterPwd"));
+
+	// Call Form Custom Validate event
+	if (!this.Form_CustomValidate(fobj)) return false;
+	return true;
+}
+
+// Form_CustomValidate function
+flogin.Form_CustomValidate = 
+ function(fobj) { // DO NOT CHANGE THIS LINE!
+
+ 	// Your custom validation code here, return false if invalid. 
+ 	return true;
+ }
+
+// Requires js validation
+flogin.ValidateRequired = true;
+</script>
+<div class="ewToolbar">
+<div class="ewLanguageOption"><div class="btn-group" data-toggle="buttons"><label class="btn btn-default ewTooltip active" data-container="body" data-placement="bottom" title="English"><input type="radio" name="ewLanguage" autocomplete="off" onchange="ew_SetLanguage(this);" value="en" checked>en</label><label class="btn btn-default ewTooltip" data-container="body" data-placement="bottom" title="Indonesian"><input type="radio" name="ewLanguage" autocomplete="off" onchange="ew_SetLanguage(this);" value="id">id</label></div></div><div class="clearfix"></div>
+</div>
+<form name="flogin" id="flogin" class="form-horizontal ewForm ewLoginForm" action="login.php" method="post">
+<div id="msLoginDialog" class="modal fade">
+<div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">x</span></button><h4 class="modal-title">Login &nbsp;<a href='javascript:void(0);' id='helponline' onclick='msHelpDialogShow()'><span class='glyphicon glyphicon-question-sign ewIconHelp'></span></a> </h4></div>
+<div class="modal-body">
+<br>
+<input type="hidden" name="token" value="sdc5lDjCbH2E_KJVkohe5g..">
+	<div class="form-group">
+		<label class="col-sm-4 control-label ewLabel" for="username">User Name</label>
+		<div class="col-sm-8"><input type="text" name="username" id="username" class="form-control ewControl" value="" placeholder="User Name"></div>
+	</div>
+	<div class="form-group">
+		<label class="col-sm-4 control-label ewLabel" for="password">Password</label>
+		<div class="col-sm-8"><input type="password" name="password" id="password" class="form-control ewControl" placeholder="Password"></div>
+	</div>
+	<div class="form-group">
+		<div class="col-sm-offset-4 col-sm-8">
+			<a id="ewLoginOptions" class="collapsed" data-toggle="collapse" data-target="#flogin_options">Options <span class="icon-arrow"></span></a>
+			<div id="flogin_options" class="collapse">
+					<div class="radio ewRadio">
+					<label for="type1"><input type="radio" name="type" id="type1" value="a">Auto login until I logout explicitly</label>
+					</div>
+					<div class="radio ewRadio">
+					<label for="type2"><input type="radio" name="type" id="type2" value="u">Save my user name</label>
+					</div>
+					<div class="radio ewRadio">
+					<label for="type3"><input type="radio" name="type" id="type3" value="" checked="checked">Always ask for my user name and password</label>
+					</div>
+			</div>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-sm-offset-4 col-sm-8">
+			<button class="btn btn-primary ewButton" name="btnsubmit" id="btnsubmit" type="submit">Login</button>
+			<button class="btn btn-danger ewButton" name="btnreset" id="btnreset" type="reset">Reset</button>
+		</div>
+	</div>
+</div>
+<div class="modal-footer">
+	<div class="pull-left">
+		<a class="ewLink ewLinkSeparator" href="forgotpwd.php">Forgot Password</a>
+				<a class="ewLink ewLinkSeparator" href="register.php">Register</a>
+			</div>
+</div>
+</div>
+</div>
+</div>
+</form>
+<script type="text/javascript">
+flogin.Init();
+$(document).ready(function(){
+	$("#btnsubmit").button().click(function(){
+		if (flogin.Validate() == true ) {
+			alertify.success("Processing ...");
+			$('#msLoginDialog').slideUp(800);
+		}
+	});
+  msLoginDialogShow(); 
+  $('#msLoginDialog').on('shown.bs.modal', function () {
+    $('#username').focus();
+  });
+});
+</script>
+<script type="text/javascript">
+
+// Write your startup script here
+// document.write("page loaded");
+
+$(document).ready(function() {
+	$('#username').val('admin');
+	$('#password').val('master');
+});
+</script>
+				<!-- right column (end) -->
+							</div>
+		</div>
+	</div>
+	<!-- content (end) -->
+	<!-- footer (begin) --><!-- ** Note: Only licensed users are allowed to remove or change the following copyright statement. ** -->
+	<div id="ewFooterRow" class="ewFooterRow">
+		<div class="ewFooterText">
+			&copy;2015 <a href='http://www.ilovephpmaker.com' title='I Love PHPMaker' target='_blank'>Masino Sinaga</a>. All rights reserved.						| <a href="javascript:void(0);" id="tac" >Terms and Conditions</a>
+									| <a href="javascript:void(0);" id="about" >About Us</a>
+									| <a href="javascript:void(0);" id="gotop" onclick="MGJS.goTop();return false;">Back to Top</a>
+						<span class="msTimer"></span>
+		</div>
+	</div>
+	<!-- footer (end) -->
+</div>
+<!-- terms and conditions dialog -->
+<div id="msTACDialog" class="modal fade"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">x</span></button><h4 class="modal-title">Terms and Conditions</h4></div><div class="modal-body">This is the terms and conditions text from database. You can edit this text from the languages table ...</div><div class="modal-footer">&nbsp;<a href="printtac.php">Print</a>&nbsp;&nbsp;<button type="button" class="btn btn-primary ewButton" data-dismiss="modal" aria-hidden="true">OK</button></div></div></div></div>
+<div id="tacs" style="display:none;">
+This is the terms and conditions text from database. You can edit this text from the languages table ...</div>
+<script type="text/javascript">
+	alertify.tacdlg || alertify.dialog('tacdlg',function(){return{main:function(content){this.setContent(content);},setup:function(){return{buttons:[{text:"OK",key:27, className:'btn btn-primary'}],focus:{element:0}};},build:function(){iframe=document.createElement('iframe');this.elements.content.appendChild(iframe);this.elements.body.style.minHeight=screen.height*.5+'px';}};});
+	$('#tac').click(function(){alertify.tacdlg($("#tacs").html()).setting({'resizable':true,'maximizable': true}).set('title','Terms and Conditions');});
+</script>
+<!-- about dialog -->
+	<div id="msAboutDialog" class="modal fade"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">x</span></button><h4 class="modal-title">About Us</h4></div><div class="modal-body"><span class='dialogtitle' style='white-space: nowrap;'>Stock Inventory Management, version 1.0</span><br><br>Managing your stock inventory so easily...<br><br><br><br><br>Web Developer:<br></span>Masino Sinaga (masino.sinaga@gmail.com)<br>Website: <a href='http://www.ilovephpmaker.com' title='I Love PHPMaker' target='_blank'>http://www.ilovephpmaker.com</a><br><br><br></div><div class="modal-footer"><button type="button" class="btn btn-primary ewButton" data-dismiss="modal" aria-hidden="true">OK</button></div></div></div></div>
+<div id="abtus" style="display:none;">
+<span class='dialogtitle' style='white-space: nowrap;'>Stock Inventory Management, version 1.0</span><br><br>Managing your stock inventory so easily...<br><br><br><br><br>Web Developer:<br></span>Masino Sinaga (masino.sinaga@gmail.com)<br>Website: <a href='http://www.ilovephpmaker.com' title='I Love PHPMaker' target='_blank'>http://www.ilovephpmaker.com</a><br><br><br></div>
+<script type="text/javascript">
+	alertify.abtusdlg || alertify.dialog('abtusdlg',function(){return{main:function(content){this.setContent(content);},setup:function(){return{buttons:[{text:"OK",key:27, className:'btn btn-primary'}],focus:{element:0}};},build:function(){iframe=document.createElement('iframe');this.elements.content.appendChild(iframe);this.elements.body.style.minHeight=screen.height*.5+'px';}};});
+	$('#about').click(function(){alertify.abtusdlg($("#abtus").html()).setting({'resizable':true,'maximizable': true}).set('title','About Us');});
+</script>
+<!-- help dialog -->
+<div id="hlp" style="display:none;">
+This is help for Login page.</div>
+<script type="text/javascript">
+	alertify.hlpdlg || alertify.dialog('hlpdlg',function(){return{main:function(content){this.setContent(content);},setup:function(){return{buttons:[{text:"OK",key:27, className:'btn btn-primary'}],focus:{element:0}};},build:function(){iframe=document.createElement('iframe');this.elements.content.appendChild(iframe);this.elements.body.style.minHeight=screen.height*.5+'px';}};});
+	$('#helponline').click(function(){alertify.hlpdlg($("#hlp").html()).setting({'resizable':true,'maximizable': true}).set('title','Login');});
+</script>
+<!-- search dialog -->
+<div id="ewSearchDialog" class="modal" role="dialog" aria-labelledby="ewSearchDialogTitle" aria-hidden="true"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="ewSearchDialogTitle"></h4></div><div class="modal-body"></div><div class="modal-footer"><button type="button" class="btn btn-primary ewButton">Search</button><button type="button" class="btn btn-default ewButton" data-dismiss="modal">Cancel</button></div></div></div></div>
+<!-- add option dialog -->
+<div id="ewAddOptDialog" class="modal" role="dialog" aria-labelledby="ewAddOptDialogTitle" aria-hidden="true"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="ewAddOptDialogTitle"></h4></div><div class="modal-body"></div><div class="modal-footer"><button type="button" class="btn btn-primary ewButton">Add</button><button type="button" class="btn btn-default ewButton" data-dismiss="modal">Cancel</button></div></div></div></div>
+<!-- email dialog -->
+<div id="ewEmailDialog" class="modal" role="dialog" aria-labelledby="ewEmailDialogTitle" aria-hidden="true"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="ewEmailDialogTitle"></h4></div>
+<div class="modal-body">
+<form id="ewEmailForm" class="form-horizontal ewForm ewEmailForm" action="login.php">
+<input type="hidden" name="token" value="sdc5lDjCbH2E_KJVkohe5g..">
+<input type="hidden" name="export" id="export" value="email">
+	<div class="form-group">
+		<label class="col-sm-2 control-label ewLabel" for="sender">From</label>
+		<div class="col-sm-10"><input type="text" class="form-control ewControl" name="sender" id="sender"></div>
+	</div>
+	<div class="form-group">
+		<label class="col-sm-2 control-label ewLabel" for="recipient">To</label>
+		<div class="col-sm-10"><input type="text" class="form-control ewControl" name="recipient" id="recipient"></div>
+	</div>
+	<div class="form-group">
+		<label class="col-sm-2 control-label ewLabel" for="cc">Cc</label>
+		<div class="col-sm-10"><input type="text" class="form-control ewControl" name="cc" id="cc"></div>
+	</div>
+	<div class="form-group">
+		<label class="col-sm-2 control-label ewLabel" for="bcc">Bcc</label>
+		<div class="col-sm-10"><input type="text" class="form-control ewControl" name="bcc" id="bcc"></div>
+	</div>
+	<div class="form-group">
+		<label class="col-sm-2 control-label ewLabel" for="subject">Subject</label>
+		<div class="col-sm-10"><input type="text" class="form-control ewControl" name="subject" id="subject"></div>
+	</div>
+	<div class="form-group">
+		<label class="col-sm-2 control-label ewLabel" for="message">Message</label>
+		<div class="col-sm-10"><textarea class="form-control ewControl" rows="6" name="message" id="message"></textarea></div>
+	</div>
+<!--
+	<div class="form-group">
+		<label class="col-sm-2 control-label ewLabel">Send as</label>
+		<div class="col-sm-10">
+		<label class="radio-inline ewRadio" style="white-space: nowrap;"><input type="radio" name="contenttype" value="html" checked="checked">HTML</label>
+		<label class="radio-inline ewRadio" style="white-space: nowrap;"><input type="radio" name="contenttype" value="url">URL</label>
+		</div>
+	</div>
+-->
+	<input type="hidden" name="contenttype" value="html">
+</form>
+</div><div class="modal-footer"><button type="button" class="btn btn-primary ewButton">Send</button><button type="button" class="btn btn-default ewButton" data-dismiss="modal">Cancel</button></div></div></div></div>
+<!-- message box -->
+<div id="ewMsgBox" class="modal" role="dialog" aria-hidden="true"><div class="modal-dialog"><div class="modal-content"><div class="modal-body"></div><div class="modal-footer"><button type="button" class="btn btn-primary ewButton" data-dismiss="modal">OK</button></div></div></div></div>
+<!-- prompt -->
+<div id="ewPrompt" class="modal" role="dialog" aria-hidden="true"><div class="modal-dialog"><div class="modal-content"><div class="modal-body"></div><div class="modal-footer"><button type="button" class="btn btn-primary ewButton">OK</button><button type="button" class="btn btn-default ewButton" data-dismiss="modal">Cancel</button></div></div></div></div>
+<!-- session timer -->
+<div id="ewTimer" class="modal" role="dialog" aria-hidden="true"><div class="modal-dialog"><div class="modal-content"><div class="modal-body"></div><div class="modal-footer"><button type="button" class="btn btn-primary ewButton" data-dismiss="modal">OK</button></div></div></div></div>
+<!-- tooltip -->
+<div id="ewTooltip"></div>
+<script type="text/javascript" src="phpjs/userevt12.js"></script>
+<script type="text/javascript">
+
+// Write your global startup script here
+// document.write("page loaded");
+
+</script>
+<script type="text/javascript">
+$(document).ready(function(){var mymenu=$('#ewMenuRow').offset().top;var mynav=$('nav').offset().top;$(window).scroll(function(){var woindowScroll= $(window).scrollTop();(woindowScroll>mymenu)?$('#ewMenuRow').addClass('StickyToTop'):$('#ewMenuRow').removeClass('StickyToTop');(woindowScroll>mynav)?$('nav').addClass('StickyToTop'):$('nav').removeClass('StickyToTop');});});
+</script>
+</body>
+<script>'undefined'=== typeof _trfq || (window._trfq = []);'undefined'=== typeof _trfd && (window._trfd=[]),_trfd.push({'tccl.baseHost':'secureserver.net'},{'ap':'cpsh-oh'},{'server':'sg2plzcpnl506005'},{'dcenter':'sg2'},{'cp_id':'10972192'},{'cp_cl':'8'}) // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.</script><script src='https://img1.wsimg.com/traffic-assets/js/tccl.min.js'></script></html>
